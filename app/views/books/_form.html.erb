@@ -2,10 +2,14 @@
   <%= f.error_notification %>
 
 
-    <%= f.input :name, label: false, placeholder: "Name of the book" %>
-    <%= f.input :author, label: false, placeholder: "Name of the author" %>
-    <%= f.input :description, label: false, placeholder: "Little description of the book" %>
-    <%= f.input :price, label: false, placeholder: "Price of the book" %>
+    <%= f.input :name, label: false, require: true,
+                placeholder: "Name of the book" %>
+    <%= f.input :author, label: false,  require: true,
+                placeholder: "Name of the author" %>
+    <%= f.input :description, label: false,  require: true,
+                placeholder: "Little description of the book" %>
+    <%= f.input :price, label: false,  require: true,
+                placeholder: "Price of the book" %>
     <%= f.input :availability %>
 
 

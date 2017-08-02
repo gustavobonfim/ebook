@@ -6,12 +6,26 @@
       <div class="caption">
         <h4><%= link_to book.name, book_path(book) %></h4>
         <p>US$ <%= book.price/100 %></p>
+        <% if book.availability? %>
+          <p>Book Available</p>
+        <% else %>
+          <p>Book <em>Not</em> Available</p>
+        <% end %>
       </div>
     </div>
   </div>
   <div class="col-md-3 dash">
     <div class="thumbnail">
       <%= image_tag "black_swan.jpeg", class: "img-responsive" %>
+      <div class="caption">
+        <h4><%= link_to book.name, book_path(book) %></h4>
+        <p>US$ <%= book.price/100 %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 dash">
+    <div class="thumbnail">
+      <%= image_tag "bsc.jpeg", class: "img-responsive" %>
       <div class="caption">
         <h4><%= link_to book.name, book_path(book) %></h4>
         <p>US$ <%= book.price/100 %></p>
