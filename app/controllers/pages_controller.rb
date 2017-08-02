@@ -13,4 +13,8 @@ class PagesController < ApplicationController
 
   end
 
+  def clinicas
+
+  end
+
 end
