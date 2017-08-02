@@ -37,6 +37,7 @@ gem "font-awesome-rails"
 gem 'simple_form'
 gem 'devise'
 gem 'cancancan', '~> 2.0'
+gem "paperclip", "~> 5.0.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
