@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-md-6 text-center">
+    <%= image_tag "good_to_great.jpg", class: "img-responsive" %>
+  </div>
+  <div class="col-md-6 text-center">
+
+    <h3><strong><%= @book.name %></strong> by <strong><%= @book.author %></strong></h3>
+    <p><%= @book.description %></p>
+    <p><strong>US$: <%= @book.price/100 %></strong></p>
+
+    <%=  %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
