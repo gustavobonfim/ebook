@@ -36,6 +36,7 @@ gem 'bootstrap-select-rails'
 gem "font-awesome-rails"
 gem 'simple_form'
 gem 'devise'
+gem 'cancancan', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
