@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
           :currency    => 'usd'
         )
 
-      @sale = book.sale.create!(buyer_email: current_user.email)
+      @sale = book.sales.create!(buyer_email: current_user.email)
         redirect_to pickup_path(uuid: @sale.uuid)
 
       rescue Stripe::CardError => e

@@ -7,5 +7,8 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
   get 'clinicas', to: 'pages#clinicas'
+
+  post '/buy/:slug', to: 'transactions#create', as: :buy
+  get '/pickup/:uuid', to: 'transactions#pickup', as: :pickup
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
