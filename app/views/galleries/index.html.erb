@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-11">
+        <h3 class="panel-title panel-title-mc">Gallery</h3>
+      </div>
+      <div class="col-md-1">
+        <%= link_to '<i class="fa fa-plus fa-lg" aria-hidden="true"></i>'.html_safe,
+                    new_gallery_path, class: "btn btn-success pull-right",
+                    :'data-toggle' => 'tooltip', :'data-placement' => 'top', :title => 'Nova Galeria' %>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th class="table-mc-15">Nome</th>
+          <th>Referência</th>
+          <th>Nome Arquivo</th>
+          <th>Status</th>
+          <th>Tipo</th>
+          <th colspan="2" class="table-mc-10"></th>
+        </tr>
+      </thead>
+      <% @galleries.each do |g| %>
+        <% g.pictures.each do |p| %>
+          <tbody>
+            <tr>
+              <td><%= g.name %></td>
+              <td><%= p.month %>/<%= p.year %></td>
+              <td><%= p.name %></td>
+              <td><%= p.status %></td>
+              <td><%= p.type.name %></td>
+              <td>
+                <%#= link_to '<i class="fa fa-download fa-lg" aria-hidden="true"></i>'.html_safe,
+                            g.picture.url, class: "btn btn-sm btn-mc-primary btn-block btn-panel",
+                            :'data-toggle' => 'tooltip', :'data-placement' => 'top', :title => 'Download', :target => '_blank' %>
+              </td>
+              <td>
+                <%= link_to '<i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>'.html_safe,
+                            edit_gallery_path(g), class: "btn btn-sm btn-default btn-panel", :'data-toggle' => 'tooltip', :'data-placement' => 'top', :title => 'Editar' %>
+              </td>
+              <td>
+                <%= link_to '<i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>'.html_safe,
+                            gallery_path(g), method: :delete, class: "btn btn-sm btn-danger btn-panel", data: {confirm: "Tem certeza que deseja apagar?"},
+                            :'data-toggle' => 'tooltip', :'data-placement' => 'top', :title => 'Apagar' %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

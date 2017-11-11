@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-sm-6">
+              <h5>Gallery</h5>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <%= form_for @gallery, :html => { :class => 'form-horizontal', multipart: true } do |f| %>
+                <div class="control-group">
+                  <%= f.label :name, :class => 'control-label' %>
+                  <div class="controls">
+                    <%= f.text_field :name, :class => 'text_field' %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <%= f.label :description, :class => 'control-label' %>
+                  <div class="controls">
+                    <%= f.text_field :description, :class => 'text_field' %>
+                  </div>
+                </div>
+                <label class="btn btn-success">
+                  <i class="fa fa-upload fa-lg" aria-hidden="true"></i> Relatório Financeiro
+                  <span style="display:none;">
+                    <div class="control-group">
+                      <%= f.label :pictures, :class => 'control-label' %>
+                      <div class="controls">
+                        <%= file_field_tag "images[]", type: :file, multiple: true %>
+                      </div>
+                    </div>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="btn-group pull-right">
+                <div class="form-actions">
+                  <%= f.submit 'Salvar', :class => 'btn btn-success pull-right' %>
+                  <%= link_to '<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>'.html_safe, :back, class: 'btn btn-sm btn-default',
+                                :'data-toggle' => 'tooltip', :'data-placement' => 'top', :title => 'Voltar' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

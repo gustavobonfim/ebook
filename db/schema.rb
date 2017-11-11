@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803220104) do
+ActiveRecord::Schema.define(version: 20171028173251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,31 @@ ActiveRecord::Schema.define(version: 20170803220104) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "description", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.bigint "gallery_id"
+    t.string "status", default: "Não Pago", null: false
+    t.bigint "type_id"
+    t.string "year", default: "", null: false
+    t.string "month", default: "", null: false
+    t.string "code", default: "", null: false
+    t.string "name", default: "", null: false
+    t.index ["gallery_id"], name: "index_pictures_on_gallery_id"
+    t.index ["type_id"], name: "index_pictures_on_type_id"
+  end
+
   create_table "sales", force: :cascade do |t|
     t.string "buyer_email"
     t.string "seller_email"
@@ -60,6 +85,13 @@ ActiveRecord::Schema.define(version: 20170803220104) do
     t.string "stripe_id"
     t.string "stripe_token"
     t.text "error"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "code", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,4 +111,6 @@ ActiveRecord::Schema.define(version: 20170803220104) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pictures", "galleries"
+  add_foreign_key "pictures", "types"
 end
